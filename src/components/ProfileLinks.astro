@@ -1,0 +1,22 @@
+---
+import { profileLinks } from "../data/profile.ts";
+
+import ProfileLinkIcon from "./ProfileLinkIcon.astro";
+---
+
+<nav class="profile-links" aria-label="Elsewhere on the web">
+    {
+        profileLinks.map((link) => (
+            <a
+                class="profile-link"
+                href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
+                aria-label={link.label}
+                title={link.label}
+            >
+                <ProfileLinkIcon name={link.icon} />
+            </a>
+        ))
+    }
+</nav>

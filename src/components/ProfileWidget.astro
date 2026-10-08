@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+
+import profilePicture from "../assets/images/profile_picture.jpg";
+import { profile } from "../data/profile.ts";
+
+import ProfileLinks from "./ProfileLinks.astro";
+---
+
+<div class="widget widget_profile">
+    <h6 class="title">About Me</h6>
+    <div class="profile-card">
+        <Image
+            class="profile-photo"
+            src={profilePicture}
+            alt={profile.photoAlt}
+            width={240}
+            height={240}
+            loading="lazy"
+        />
+
+        <ProfileLinks />
+
+        <p class="profile-bio">{profile.bio}</p>
+    </div>
+</div>

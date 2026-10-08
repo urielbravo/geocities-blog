@@ -28,6 +28,7 @@
 @import "./grid.css";
 
 /* Component styles */
+@import "../components/profile-widget.css";
 @import "../components/social-icons.css";
 @import "../components/torch.css";
 @import "../components/menu-toggle.css";

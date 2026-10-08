@@ -1,0 +1,90 @@
+/* 90s Retro — static conversion of the Organic Themes WordPress theme (GPL v2+). */
+
+.profile-card {
+    text-align: center;
+}
+
+/* Oval avatar: a soft curve on a theme otherwise made of hard 90s bevels, so it
+   reads as a photo rather than another GIF placeholder. `aspect-ratio` with
+   `object-fit` pins it to a circle without depending on the source dimensions —
+   the current crop is square, but a future replacement photo may not be. */
+.profile-photo {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    border: 3px solid #33ff00;
+}
+
+/* No hover state on the photo: the border stays #33ff00 at all times. */
+
+/* ---------- LINKS ---------- */
+
+.profile-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 0 0 18px;
+}
+
+/* Icon-only buttons, styled after the theme's own `.social-icons li a` bevel:
+   flat #333 border, inset highlight, neon fill on hover. Fixed square so the
+   row stays centred and evenly spaced now that the labels are gone.
+   `box-sizing: border-box` keeps the declared size the rendered size — without
+   it the 2px borders push the buttons out to 44px. The accessible name comes
+   from aria-label on the anchor, so these stay usable with a screen reader. */
+.profile-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    width: 44px;
+    height: 44px;
+    flex: none;
+    background: #333333;
+    color: #33ff00;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    border: 2px solid #333333;
+    box-shadow: inset 2px 2px 0px #999999;
+}
+
+.profile-link:hover {
+    background: #33ff00;
+    color: #000000;
+    text-decoration: none;
+}
+
+/* Keyboard focus ring only — deliberately not on :hover, so a mouse user
+   doesn't see the yellow outline while moving across the row. */
+.profile-link:focus-visible {
+    outline: 2px solid #ffff00;
+    outline-offset: 2px;
+}
+
+.profile-link-icon {
+    display: block;
+    flex: none;
+    /* Opts the glyph into the button's green fill on hover instead of the
+       theme's global img/object/embed rules. */
+    fill: currentColor;
+}
+
+/* ---------- BIO ---------- */
+
+.profile-bio {
+    /* Set here rather than left to inherit from .profile-card, so the text
+       stays centred if the card is ever restructured. `max-width` keeps the
+       measure readable — full sidebar width wraps into short, ragged lines. */
+    max-width: 28em;
+    margin: 0 auto;
+    color: #999999;
+    font-size: 1em;
+    line-height: 1.6;
+    text-align: center;
+    padding: 0;
+}
