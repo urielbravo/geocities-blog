@@ -1,0 +1,35 @@
+---
+import type { MenuItem } from "../data/menu";
+
+interface Props {
+    items: MenuItem[];
+}
+
+const { items } = Astro.props;
+---
+
+{
+    items.map((item) => (
+        <li
+            class:list={[
+                "menu-item",
+                { "current-menu-item": item.current },
+                { "menu-item-has-children": Boolean(item.children) },
+            ]}
+        >
+            <a
+                href={item.href}
+                class:list={[{ scroll: item.scroll }]}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener" : undefined}
+            >
+                {item.label}
+            </a>
+            {item.children && (
+                <ul class="sub-menu">
+                    <Astro.self items={item.children} />
+                </ul>
+            )}
+        </li>
+    ))
+}

@@ -1,0 +1,95 @@
+/* 90s Retro — static conversion of the Organic Themes WordPress theme (GPL v2+). */
+
+/************************************************
+*	20. Forms									*
+************************************************/
+
+/* General Form Styles */
+
+.container form {
+    display: block;
+}
+.container form div {
+    display: block;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+.container form span {
+    display: block;
+    margin-bottom: 8px;
+    overflow: hidden;
+}
+.container form span.required {
+    display: inline;
+}
+.container form li,
+.container form ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+.container form legend {
+    font-weight: bold;
+    padding-top: 10px;
+}
+.container form label {
+    margin-top: 6px;
+}
+.container form li > label {
+    font-weight: bold;
+}
+.container form li li > label {
+    font-weight: normal;
+}
+.container form span label {
+    font-size: 0.8em;
+}
+.container form input[type="url"],
+.container form input[type="tel"],
+.container form input[type="email"],
+.container form input[type="text"],
+.container form input[type="password"],
+.container form input[type="number"],
+.container form textarea {
+    display: block;
+    background: #f9f9f9;
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    line-height: 1.4;
+    margin: 4px 12px 4px 0px;
+    padding: 8px 2%;
+    border: 1px inset rgba(0, 0, 0, 0.08);
+}
+.container form input[type="url"],
+.container form input[type="tel"],
+.container form input[type="email"],
+.container form input[type="text"],
+.container form input[type="password"],
+.container form input[type="number"] {
+    width: 40%;
+}
+.container form textarea {
+    width: 96%;
+}
+.container form input[type="checkbox"],
+.container form input[type="radio"] {
+    margin-left: 0px;
+    margin-right: 6px;
+}
+.container form input[type="submit"] {
+    margin-top: 0px;
+}
+.container form .form-submit {
+    padding: 8px 0px;
+}
+select {
+    display: block;
+    background: #f9f9f9;
+    max-width: 98%;
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    line-height: 1.4;
+    margin: 4px 12px 4px 0px;
+    padding: 8px 4px !important;
+    border: 1px inset rgba(0, 0, 0, 0.08);
+}

@@ -1,0 +1,162 @@
+/* 90s Retro — static conversion of the Organic Themes WordPress theme (GPL v2+). */
+
+/************************************************
+*	17.	Comments								*
+************************************************/
+
+#author,
+#email,
+#url {
+    background: #ffffff;
+    color: #666666;
+    font-size: 1em;
+    margin: 0px;
+    padding: 8px 2%;
+    border: 2px solid #cccccc;
+}
+#comment {
+    background: #ffffff;
+    color: #666666;
+    font-size: 1em;
+    margin: 6px 0px;
+    padding: 8px 2%;
+    border: 2px solid #cccccc;
+}
+#comments {
+    background: #000000;
+    margin-top: 24px;
+    margin-bottom: 48px;
+    padding: 48px 8%;
+    border: 6px double #33ff00;
+}
+.postarea.full #comments {
+    padding: 64px 12%;
+}
+#comments-title {
+    font-size: 2em;
+    margin: 4px 0px 8px 0px;
+    padding: 4px 0px 8px 0px;
+}
+#reply-title {
+    margin: 0px;
+    padding: 0px;
+}
+.comment-subscription-form {
+    padding: 6px 0px;
+}
+.commentlist li .avatar {
+    float: right;
+    background: #f9f9f9;
+    margin: 0px 0px 12px 12px;
+    padding: 6px;
+    border: none;
+}
+.commentlist {
+    margin: 0px;
+    padding: 0px;
+}
+.commentlist ol {
+    margin: 0px;
+    padding: 10px;
+}
+.commentlist li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.commentlist li:last-child {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.commentlist li ul li {
+    padding-left: 24px;
+}
+.commentlist li ul li:last-child {
+    border-bottom: none;
+}
+.commentlist p {
+    margin: 10px 0px;
+    padding: 0px;
+}
+.comment {
+    padding: 18px 0px;
+    overflow: hidden;
+}
+#commentform {
+    margin: 5px 0px 0px 0px;
+}
+#commentform #submit {
+    font-size: 1em;
+}
+.commentlist li #respond {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+#respond {
+    padding-top: 24px;
+}
+#respond:after {
+    content: ".";
+    display: block;
+    height: 0px;
+    clear: both;
+    visibility: hidden;
+}
+#cancel-comment-reply-link {
+    display: block;
+    font-family: Georgia, Times, serif;
+    font-size: 0.7em;
+    font-weight: normal;
+    text-transform: none;
+    margin: 6px 0px 18px 0px;
+}
+.form-submit #submit {
+    margin-top: 0px !important;
+}
+p.logged-in-as {
+    margin-top: -6px;
+}
+.nocomments {
+    display: none;
+}
+.edit-link {
+    float: right;
+    margin-top: 12px;
+}
+.reply {
+    float: left;
+    margin: 6px 0px;
+}
+.reply a,
+.reply a:visited {
+    margin: 0px !important;
+    padding: 4px 18px !important;
+}
+.commentmetadata {
+    font-size: 10px;
+    line-height: 14px;
+    margin: 0px;
+    display: block;
+}
+.navigation {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.form-allowed-tags {
+    display: none;
+}
+.thread-alt,
+.thread-even {
+    margin: 0px;
+    padding: 0px;
+}
+.children {
+    margin: 0px;
+    padding: 0px;
+}
+.even,
+.alt {
+    margin: 0px;
+    padding: 0px;
+}

@@ -1,0 +1,117 @@
+/* 90s Retro — static conversion of the Organic Themes WordPress theme (GPL v2+). */
+
+/************************************************
+*	5. Content	 					     	    *
+************************************************/
+
+#wrapper,
+.container {
+    margin: 0px auto 0px;
+    padding: 0px;
+}
+.container {
+    max-width: 1200px;
+}
+.content {
+    margin: 0px auto 0px;
+    padding: 24px 4%;
+    position: relative;
+}
+.content:before,
+.content:after {
+    content: "";
+    display: table;
+}
+.content:after {
+    clear: both;
+}
+.article {
+    display: block;
+    position: relative;
+    padding: 64px 8%;
+    overflow: hidden;
+}
+.postarea.full .article {
+    padding: 96px 12%;
+}
+.post-holder,
+.page-holder,
+.blog-holder,
+.archive-holder {
+    background: #000000;
+    position: relative;
+    margin-bottom: 24px;
+    border: 6px double #33ff00;
+}
+.postarea {
+    padding: 0px 24px 0px 0px;
+}
+.postarea.full {
+    padding: 0px;
+}
+.post-author {
+    display: block;
+    color: #999999;
+    width: 100%;
+    font-family: "Droid Serif";
+    font-size: 1.2em;
+    margin: -12px 0px 0px 0px;
+    padding: 6px 0px;
+}
+.post-author p,
+.post-date p {
+    margin: 0px;
+    padding: 0px;
+}
+.post-author p a {
+    text-transform: capitalize;
+}
+.post-date {
+    display: block;
+    color: #999999;
+    font-size: 0.8em;
+    margin: 0px 0px 6px 0px;
+    padding: 6px 0px;
+}
+.post-meta {
+    display: inline-block;
+    color: #999999;
+    width: 100%;
+    font-size: 0.9em;
+    margin: 24px 0px 12px 0px;
+    padding: 8px 0px;
+    overflow: hidden;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.post-meta p {
+    margin: 0px;
+    padding: 0px;
+}
+.post-author i.fa,
+.post-meta i.fa {
+    margin-right: 2px;
+}
+.post-meta i.fa.fa-tags {
+    margin-left: 8px;
+}
+.post-edit-link {
+    display: block;
+    padding-top: 18px;
+}
+.author-column {
+    float: right;
+    width: 72%;
+    margin-top: 20px;
+    padding-left: 4%;
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
+}
+.author-posts {
+    margin: 0px 0px 12px 0px;
+    padding: 0px;
+}
+.author-posts li {
+    margin: 0px;
+    padding: 6px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}

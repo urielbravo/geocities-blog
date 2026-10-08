@@ -1,0 +1,207 @@
+/* 90s Retro — static conversion of the Organic Themes WordPress theme (GPL v2+). */
+
+/* Nicolas Gallagher's micro clearfix */
+.row:before,
+.row:after,
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+.row:after,
+.clearfix:after {
+    clear: both;
+}
+.row,
+.clearfix {
+    zoom: 1;
+}
+
+body {
+    background-color: #000000;
+    color: #cccccc;
+    font-size: 1.1em;
+    font-family: Georgia, Times, serif;
+    font-weight: normal;
+    line-height: 1.7;
+    margin: 0px;
+    padding: 0px;
+}
+
+/************************************************
+*	0.	Global									*
+************************************************/
+
+p {
+    padding: 18px 0px;
+    margin: 0px;
+}
+p:empty {
+    display: none;
+}
+em {
+    font-style: italic;
+}
+strong {
+    font-weight: bold;
+}
+hr {
+    border: 0;
+    width: 100%;
+    height: 1px;
+    color: #dddddd;
+    background-color: #dddddd;
+    margin: 6px 0px 8px 0px;
+    padding: 0px;
+}
+ol,
+ul {
+    list-style: none;
+    margin: 6px 0px;
+    padding: 0px 0px 0px 12px;
+}
+ol li {
+    list-style: inside;
+    list-style-type: decimal;
+    margin: 6px 0px;
+    padding: 0px 0px 0px 12px;
+}
+ul li {
+    list-style: inside;
+    list-style-type: disc;
+    margin: 6px 0px;
+    padding: 0px 0px 0px 12px;
+}
+ul ol li,
+ul ol ul ol li {
+    list-style-type: decimal;
+}
+ol ul li,
+ol ul ol ul li {
+    list-style-type: disc;
+}
+blockquote {
+    color: #ff0000;
+    font-family: "Comic Sans MS", cursive;
+    font-weight: bold;
+    font-size: 1.6em;
+    line-height: 1.4;
+    margin: 18px 0px;
+    padding: 24px;
+    border: 4px double #ff0000;
+}
+blockquote p {
+    margin: 0px;
+    padding: 0px;
+}
+blockquote,
+q {
+    quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: "";
+    content: none;
+}
+code,
+pre {
+    color: #666666;
+    background: #f9f9f9;
+    font-family: Courier, Verdana, Tahoma, Verdana;
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 24px 0px;
+    padding: 6px 8px;
+    border: 1px solid #dddddd;
+}
+code {
+    display: inline;
+    white-space: normal;
+}
+pre {
+    display: block;
+    white-space: pre-line;
+}
+pre code {
+    padding: 0px;
+    border: none;
+    box-shadow: none;
+}
+img {
+    -ms-interpolation-mode: bicubic;
+    height: auto;
+}
+img,
+object,
+embed {
+    max-width: 100%;
+    margin: 0px auto 0px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.clear {
+    clear: both;
+}
+.hidden {
+    display: none;
+}
+.hide-text {
+    text-indent: -9999px;
+}
+.hide-img img {
+    margin-left: -9999px;
+}
+.divider-small {
+    display: inline-block;
+    color: rgba(0, 0, 0, 0.08);
+    background: rgba(0, 0, 0, 0.08);
+    height: 4px;
+    width: 12%;
+    margin: 6px 0px 12px 0px;
+}
+.text-left {
+    text-align: left;
+}
+.text-right {
+    text-align: right;
+}
+.text-center {
+    text-align: center;
+}
+.align-center {
+    float: none;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.align-left {
+    float: left;
+}
+.align-right {
+    float: right;
+}
+.padded {
+    padding: 24px;
+}
+.vertical-center {
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+/* Background pattern (replaces images/background.png) */
+body {
+    background-color: #000000;
+    background-image: repeating-linear-gradient(
+        45deg,
+        #1a1a1a 0px,
+        #1a1a1a 4px,
+        #0d0d0d 4px,
+        #0d0d0d 8px
+    );
+}

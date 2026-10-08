@@ -1,0 +1,17 @@
+---
+import { pagination } from "../data/posts";
+---
+
+<nav class="navigation pagination" role="navigation" aria-label="Posts">
+    <div class="nav-links">
+        <span class="page-numbers current">{pagination.current}</span>
+        {
+            pagination.pages.map((page) => (
+                <a class="page-numbers" href="#">
+                    {page}
+                </a>
+            ))
+        }
+        <a class="next page-numbers" href="#">&raquo;</a>
+    </div>
+</nav>

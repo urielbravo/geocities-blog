@@ -1,0 +1,50 @@
+/* 90s Retro — static conversion of the Organic Themes WordPress theme (GPL v2+). */
+
+/************************************************
+*	18.	Buttons  								*
+************************************************/
+
+a.button,
+.reply a,
+#searchsubmit,
+#prevLink a,
+#nextLink a,
+a.more-link,
+#submit,
+#comments #respond input#submit,
+.container .gform_wrapper input.button,
+#wrapper #infinite-handle span {
+    display: inline-block;
+    position: relative;
+    background-color: #cccccc;
+    color: #000000 !important;
+    font-family: Courier, serif;
+    font-size: 1.1em;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 12px 0px;
+    padding: 12px 24px;
+    border: 3px solid #666666;
+    box-shadow: inset 3px 3px 0px #ffffff;
+}
+a.button:hover,
+.reply a:hover,
+#searchsubmit:hover,
+#prevLink a:hover,
+#nextLink a:hover,
+a.more-link:hover,
+#submit:hover,
+#comments #respond input#submit:hover,
+.container .gform_wrapper input.button:hover,
+#wrapper #infinite-handle span:hover {
+    background-color: #33ff00;
+    color: #ffffff !important;
+    text-decoration: none;
+    text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+.article a.more-link {
+    margin: 24px 0px 0px 0px;
+}

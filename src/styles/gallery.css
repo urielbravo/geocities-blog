@@ -1,0 +1,37 @@
+/* 90s Retro — static conversion of the Organic Themes WordPress theme (GPL v2+). */
+
+/************************************************
+*	9.	WordPress Gallery					    *
+************************************************/
+
+.gallery-caption {
+    font-size: 0.8em;
+    padding: 0px 10px;
+}
+.gallery {
+    margin: 0px auto 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+.gallery-item {
+    margin: 0px;
+}
+.gallery-icon {
+    line-height: 0;
+    margin: 6px;
+}
+.gallery-icon img {
+    display: block;
+    background: #333333;
+    padding: 6px;
+}
+.gallery a:hover {
+    background: #33ff00;
+}
+.gallery img {
+    border: none;
+}
+.gallery-caption {
+    font-size: 0.9em;
+    padding: 0px 10px;
+}

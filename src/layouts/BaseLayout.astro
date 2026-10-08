@@ -1,0 +1,45 @@
+---
+import "../styles/global.css";
+
+import { site } from "../data/site";
+
+interface Props {
+    title?: string;
+    description?: string;
+    bodyClass?: string;
+}
+
+const {
+    title = site.title,
+    description = site.metaDescription,
+    bodyClass = site.bodyClasses,
+} = Astro.props;
+---
+
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>{title} &mdash; {site.tagline}</title>
+        <meta name="description" content={description} />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="alternate icon" href="/favicon.ico" sizes="48x48" />
+    </head>
+
+    <body class={bodyClass}>
+        <!-- BEGIN #wrapper -->
+        <div id="wrapper">
+            <slot />
+        </div>
+        <!-- END #wrapper -->
+    </body>
+</html>
+
+<script>
+    import { initSite } from "../scripts/site.js";
+    import { initSmoothScroll } from "../scripts/smooth-scroll.js";
+
+    initSite();
+    initSmoothScroll();
+</script>

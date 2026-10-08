@@ -1,0 +1,16 @@
+---
+import { categories } from "../data/sidebar";
+---
+
+<div class="widget widget_categories">
+    <h6 class="title">Categories</h6>
+    <ul>
+        {
+            categories.map(({ name, href }) => (
+                <li>
+                    <a href={href}>{name}</a>
+                </li>
+            ))
+        }
+    </ul>
+</div>

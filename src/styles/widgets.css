@@ -1,0 +1,210 @@
+/* 90s Retro — static conversion of the Organic Themes WordPress theme (GPL v2+). */
+
+/************************************************
+*	11.	Widgets									*
+************************************************/
+
+.widget {
+    margin-bottom: 48px;
+    padding: 0px;
+}
+.widget ul,
+.widget li {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+.widget li {
+    display: block;
+    margin: 6px 0px 0px 0px;
+    padding: 6px 0px 0px 0px;
+    border-top: 3px dotted #666666;
+}
+.widget li:last-child {
+    padding-bottom: 6px;
+    border-bottom: 3px dotted #666666;
+}
+.widget li li {
+    padding-left: 12px;
+}
+.widget li li:last-child {
+    padding-bottom: 0px;
+    border-bottom: none;
+}
+.widget li a {
+    margin: 0px;
+    padding: 0px;
+}
+.textwidget {
+    margin: 0px;
+    padding: 0px;
+}
+.textwidget p {
+    padding: 8px 0px !important;
+}
+.tagcloud {
+    line-height: 1.2;
+}
+
+/************************************************
+*	12.	RSS Widget								*
+************************************************/
+
+.widget h6 a.rsswidget {
+    display: inline;
+}
+.widget a.rsswidget {
+    display: block;
+}
+.widget .rss-date {
+    display: block;
+    font-size: 0.8em;
+    margin-bottom: 12px;
+}
+
+/************************************************
+*	13.	Calendar Widget							*
+************************************************/
+
+#calendar_wrap {
+    margin: 0px auto 0px;
+    padding: 0px;
+}
+#wp-calendar {
+    width: 100%;
+    text-align: center;
+}
+#wp-calendar #today {
+    background: #ffffff;
+    color: #000000;
+    font-weight: bold;
+}
+#wp-calendar a {
+    margin: 0px;
+}
+#wp-calendar caption {
+    font-size: 16px;
+    margin: 5px 0px 5px 0px;
+}
+#wp-calendar #prev a {
+    float: left;
+    margin: 0px;
+    text-align: left;
+    padding-left: 12px;
+}
+#wp-calendar #next a {
+    float: right;
+    margin: 0px;
+    text-align: right;
+    padding-right: 12px;
+}
+
+/************************************************
+*	14.	Custom Menu Widget						*
+************************************************/
+
+.widget ul.menu {
+    float: none;
+    width: 100%;
+    text-align: left;
+}
+.widget ul.menu .current_page_item a,
+.widget ul.menu .current-menu-item a {
+    color: #33ff00;
+    background: none;
+}
+.widget ul.menu li a {
+    display: block;
+    background: none;
+    color: #33ff00;
+    height: auto;
+    font-family: Georgia, Times, serif;
+    font-weight: normal;
+    font-size: 1em;
+    text-transform: none;
+    line-height: 1.8;
+    letter-spacing: 0px;
+    margin: 6px 0px;
+    padding: 0px;
+    border: none;
+    box-shadow: none;
+}
+.widget ul.menu li a:hover {
+    background: none;
+    text-decoration: underline;
+}
+.widget ul.menu li {
+    float: none;
+    display: block;
+    background: none !important;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+.widget ul.menu li li {
+    border-top: none;
+}
+.widget ul.menu li:last-child {
+    border-bottom: none;
+}
+.widget ul.menu li span {
+    top: 1px;
+    right: 0px;
+}
+.widget ul.menu li ul.sub-menu {
+    background: none !important;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    position: static;
+    z-index: 9;
+}
+.widget ul.menu li ul.sub-menu span {
+    display: none;
+}
+.widget ul.menu li ul.sub-menu li a {
+    padding-left: 12px;
+}
+.widget ul.menu li ul.sub-menu li ul.sub-menu li {
+    display: none;
+}
+
+/************************************************
+*	15.	Search Form								*
+************************************************/
+
+#searchform {
+    margin: 0px;
+    padding: 0px;
+}
+#searchform label {
+    display: none;
+}
+#searchform .search-field,
+#searchform #s {
+    float: left;
+    background: #f9f9f9;
+    color: #999999;
+    width: 68%;
+    height: 36px;
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    line-height: 36px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 8px 0px 8px !important;
+    border: 1px inset rgba(0, 0, 0, 0.08);
+}
+#searchsubmit {
+    float: right;
+    background: #f9f9f9;
+    color: #666666;
+    width: 20%;
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    padding: 8px 3% !important;
+}
+.widget_search {
+    overflow: hidden;
+}

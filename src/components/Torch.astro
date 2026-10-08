@@ -1,0 +1,15 @@
+---
+interface Props {
+    side: "left" | "right";
+}
+
+const { side } = Astro.props;
+---
+
+<div class={`torch-${side}`}>
+    <div class="torch" aria-hidden="true">
+        <span class="flame"></span>
+        <span class="bowl"></span>
+        <span class="handle"></span>
+    </div>
+</div>

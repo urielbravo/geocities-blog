@@ -1,0 +1,19 @@
+/* 90s Retro — static conversion of the Organic Themes WordPress theme (GPL v2+). */
+
+/************************************************
+*	10.	Sidebar 	        		    	    *
+************************************************/
+
+.sidebar {
+    margin: 0px;
+    padding: 12px 0px 0px 24px;
+}
+.sidebar.left {
+    padding: 12px 24px 0px 0px;
+}
+.sidebar h6,
+.footer h6 {
+    margin-bottom: 12px;
+    padding-bottom: 0px;
+    border-bottom: none;
+}

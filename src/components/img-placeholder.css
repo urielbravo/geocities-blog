@@ -1,0 +1,45 @@
+/* 90s Retro — static conversion of the Organic Themes WordPress theme (GPL v2+). */
+
+/* Image placeholders (replace featured images) */
+.img-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 9 / 5;
+    background: repeating-linear-gradient(
+        -45deg,
+        #001a00 0px,
+        #001a00 12px,
+        #002600 12px,
+        #002600 24px
+    );
+    color: #33ff00;
+    font-family: Courier, monospace;
+    font-size: 1.1em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 1.4;
+    border-bottom: 3px solid #33ff00;
+}
+.feature-img.img-placeholder {
+    margin: 24px 24px 0px;
+    padding: 0px;
+}
+.img-placeholder:hover {
+    color: #ffff00;
+    text-decoration: none;
+}
+.logo-placeholder {
+    aspect-ratio: 16 / 6;
+    border: 3px ridge #33ff00;
+    font-size: 0.8em;
+}
+
+/* Icon placeholders (replace Font Awesome) */
+.icon {
+    display: inline-block;
+    width: 1.2em;
+    text-align: center;
+    color: #999999;
+}

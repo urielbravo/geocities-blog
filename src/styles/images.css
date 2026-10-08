@@ -1,0 +1,113 @@
+/* 90s Retro — static conversion of the Organic Themes WordPress theme (GPL v2+). */
+
+/************************************************
+*	8.	Images  				     		    *
+************************************************/
+
+.feature-img {
+    display: block;
+    background: #000000;
+    text-align: center;
+    line-height: 0;
+    margin: 0px auto 0px;
+    padding: 24px 24px 0px 24px;
+    overflow: hidden;
+}
+.post-banner,
+.feature-img.post-banner {
+    margin-bottom: 24px;
+    padding: 24px;
+    border: 2px solid #33ff00;
+}
+.page-banner,
+.feature-img.page-banner {
+    min-height: 240px;
+    position: relative;
+    margin-bottom: 24px;
+    padding: 0px;
+    border: 2px solid #33ff00;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.page-banner img {
+    margin-left: -9999px;
+}
+.avatar {
+    background: #ffffff;
+    margin: 10px 20px 10px 0px;
+    padding: 6px;
+}
+.author-avatar {
+    float: left;
+    display: block;
+    width: 20%;
+    margin-top: 20px;
+    padding-right: 3.6%;
+}
+.author-avatar .avatar {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+}
+img.hide-img {
+    line-height: 0;
+    margin-left: -999em;
+    padding: 0px;
+}
+img.aligncenter {
+    display: block;
+    margin: 6px auto 6px;
+    padding: 0px;
+}
+img.alignnone {
+    padding: 0px;
+    margin: 6px 0px;
+    display: inline;
+}
+img.alignright {
+    padding: 0px;
+    margin: 12px 0px 12px 24px;
+    display: inline;
+}
+img.alignleft {
+    display: inline;
+    padding: 0px;
+    margin: 12px 24px 12px 0px;
+}
+.aligncenter {
+    display: block;
+    margin: 6px auto 6px;
+}
+.alignright {
+    float: right;
+    margin: 6px 0px 6px 24px;
+}
+.alignleft {
+    float: left;
+    margin: 6px 24px 6px 0px;
+}
+.wp-caption {
+    background: #222222;
+    max-width: 100%;
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 8px 6px;
+    border: 1px solid #33ff00;
+}
+.wp-caption img {
+    max-width: 100%;
+    margin: 0px auto 0px;
+    padding: 0px;
+}
+.wp-caption p.wp-caption-text {
+    display: inline;
+    font-size: 0.85em;
+    line-height: 1.6;
+    margin: 0px;
+    padding: 0px;
+}

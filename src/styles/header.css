@@ -1,0 +1,86 @@
+/* 90s Retro — static conversion of the Organic Themes WordPress theme (GPL v2+). */
+
+/************************************************
+*	3.	Header  								*
+************************************************/
+
+#header {
+    line-height: 0;
+    margin: 0px;
+    padding: 0px 4%;
+    position: relative;
+    z-index: 8;
+}
+#custom-header {
+    display: block;
+    position: relative;
+    line-height: 0;
+    background-position: center top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    margin: 0px;
+    padding: 0px;
+}
+#logo {
+    display: block;
+    width: 100%;
+    line-height: 0;
+    margin: 0px;
+    padding: 0px;
+}
+#logo a {
+    display: block;
+    padding: 0px;
+}
+#logo img {
+    max-height: 240px;
+}
+#logo .logo-text {
+    float: left;
+    text-align: left;
+    text-indent: -9999px;
+}
+#masthead {
+    display: inline-block;
+    position: absolute;
+    width: 64%;
+    margin: 0px;
+    padding: 24px 0px;
+}
+#masthead .site-title {
+    display: block;
+    color: #33ff00;
+    font-size: 4.4em;
+    font-family: "VT323", Courier, serif;
+    font-weight: 800;
+    letter-spacing: 0px;
+    line-height: 1;
+    margin: 0px auto 0px;
+    padding: 0px;
+}
+#masthead .site-title a {
+    color: #33ff00;
+}
+#masthead .site-description {
+    display: block;
+    color: #999999;
+    font-size: 1.4em;
+    font-family: Courier, serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-indent: 2px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    margin: 12px auto 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+.torch-left {
+    float: left;
+    width: 18%;
+}
+.torch-right {
+    float: right;
+    width: 18%;
+}

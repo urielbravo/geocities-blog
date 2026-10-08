@@ -1,0 +1,157 @@
+/* 90s Retro — static conversion of the Organic Themes WordPress theme (GPL v2+). */
+
+/************************************************
+*	1.	Hyperlinks								*
+************************************************/
+
+a img {
+    border: none;
+}
+a,
+a:link,
+a:visited {
+    color: #33ff00;
+    text-decoration: none;
+}
+a:focus,
+a:hover,
+a:active {
+    text-decoration: underline;
+}
+
+/************************************************
+*	2.	Headings  								*
+************************************************/
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #ffffff;
+    font-family: Courier, serif;
+    line-height: 1.2;
+}
+h1,
+h2,
+h3 {
+    font-weight: bold;
+}
+h4,
+h5,
+h6 {
+    font-weight: normal;
+}
+h1 {
+    font-size: 2.4em;
+    letter-spacing: -0.8px;
+    margin: 4px 0px 4px 0px;
+    padding: 4px 0px 4px 0px;
+}
+h2 {
+    font-size: 2.2em;
+    letter-spacing: -0.6px;
+    margin: 4px 0px 4px 0px;
+    padding: 4px 0px 4px 0px;
+}
+h3 {
+    font-size: 2em;
+    letter-spacing: -0.4px;
+    margin: 4px 0px 4px 0px;
+    padding: 4px 0px 4px 0px;
+}
+h4 {
+    font-size: 1.6em;
+    margin: 4px 0px 4px 0px;
+    padding: 4px 0px 4px 0px;
+}
+h5 {
+    font-size: 1.4em;
+    margin: 4px 0px 4px 0px;
+    padding: 4px 0px 4px 0px;
+}
+h6 {
+    font-size: 1.1em;
+    letter-spacing: 0.2px;
+    margin: 4px 0px 6px 0px;
+    padding: 4px 0px 6px 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a,
+h1 a:link,
+h2 a:link,
+h3 a:link,
+h4 a:link,
+h5 a:link,
+h6 a:link,
+h1 a:visited,
+h2 a:visited,
+h3 a:visited,
+h4 a:visited,
+h5 a:visited,
+h6 a:visited {
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+}
+h1 a:hover,
+h2 a:hover,
+h3 a:hover,
+h4 a:hover,
+h5 a:hover,
+h6 a:hover,
+h1 a:focus,
+h2 a:focus,
+h3 a:focus,
+h4 a:focus,
+h5 a:focus,
+h6 a:focus,
+h1 a:active,
+h2 a:active,
+h3 a:active,
+h4 a:active,
+h5 a:active,
+h6 a:active {
+    text-decoration: underline;
+    border: none;
+}
+.headline {
+    font-size: 2.4em;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    margin: 0px;
+    padding: 0px 0px 12px 0px;
+}
+.headline.small {
+    font-size: 2em;
+}
+.headline.img-headline {
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    width: 88%;
+    font-size: 3.8em;
+    text-align: center;
+    letter-spacing: -2px;
+    margin-top: -12px;
+    padding: 0px 6%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.title {
+    font-size: 1em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin: 0px;
+    padding: 0px;
+}

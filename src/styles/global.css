@@ -1,0 +1,41 @@
+/*
+ * 90s Retro — theme stylesheet entry point.
+ *
+ * Import order matters: the original single-file stylesheet relied on source
+ * order, so the sections below keep their original sequence. Component styles
+ * come last (they were the "static-site additions" at the end of the inline
+ * <style>), with responsive.css last of all so its media queries and
+ * `prefers-reduced-motion` overrides win.
+ */
+
+/* Theme areas */
+@import "./base.css";
+@import "./typography.css";
+@import "./header.css";
+@import "./navigation.css";
+@import "./content.css";
+@import "./pagination.css";
+@import "./images.css";
+@import "./gallery.css";
+@import "./sidebar.css";
+@import "./widgets.css";
+@import "./footer.css";
+@import "./comments.css";
+@import "./buttons.css";
+@import "./tables.css";
+@import "./forms.css";
+@import "./wp-core.css";
+@import "./grid.css";
+
+/* Component styles */
+@import "../components/social-icons.css";
+@import "../components/torch.css";
+@import "../components/menu-toggle.css";
+@import "../components/img-placeholder.css";
+@import "../components/blog-post.css";
+@import "../components/blink.css";
+@import "../components/marquee.css";
+@import "../components/visitor-counter.css";
+
+/* Media queries — must stay last */
+@import "./responsive.css";

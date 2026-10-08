@@ -1,0 +1,41 @@
+/* 90s Retro — static conversion of the Organic Themes WordPress theme (GPL v2+). */
+
+/************************************************
+*	6. Social Media   							*
+************************************************/
+
+.social-icons {
+    list-style: none;
+    margin: 0px;
+    padding: 8px 0px 0px 0px;
+}
+.social-icons li {
+    display: inline-block;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+.social-icons li a {
+    display: block;
+    background: #666666;
+    color: #cccccc;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: -1px -1px 0px rgba(0, 0, 0, 0.15);
+    line-height: 32px;
+    min-width: 32px;
+    margin: 4px;
+    padding: 0px;
+    border: 2px solid #333333;
+    box-shadow: inset 2px 2px 0px #999999;
+}
+.social-icons li a:hover {
+    background: #33ff00;
+    color: #ffffff;
+}
+.social-icons li a {
+    padding: 0px 10px;
+    font-family: Courier, serif;
+    font-size: 0.8em;
+    text-transform: uppercase;
+}

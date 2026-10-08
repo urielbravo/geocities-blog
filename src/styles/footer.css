@@ -1,0 +1,25 @@
+/* 90s Retro — static conversion of the Organic Themes WordPress theme (GPL v2+). */
+
+/************************************************
+*	16.	Footer  								*
+************************************************/
+
+.footer {
+    background: #000000;
+    margin: 0px auto 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+.footer p {
+    margin: 0px;
+    padding: 0px;
+}
+.footer .align-left {
+    font-size: 0.9em;
+    line-height: 1.8;
+}
+.footer-information {
+    border-top: 2px dotted #333333;
+    padding-top: 24px;
+    overflow: hidden;
+}

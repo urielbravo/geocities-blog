@@ -1,0 +1,70 @@
+---
+import type { Post } from "../data/posts";
+
+interface Props {
+    post: Post;
+}
+
+const { post } = Astro.props;
+---
+
+<div class="post blog-holder" id={post.id}>
+    <a
+        class="feature-img img-placeholder"
+        href={post.href}
+        aria-label={post.imageLabel}
+    >
+        [ Image 900&times;500 ]
+    </a>
+    <div class="article">
+        <div class="post-date">
+            {
+                post.comments && (
+                    <p>
+                        <span class="icon" aria-hidden="true">
+                            &#9993;
+                        </span>{" "}
+                        <a href={post.href}>{post.comments}</a>
+                    </p>
+                )
+            }
+            <p>
+                <span class="icon" aria-hidden="true">&#9719;</span> Posted on{" "}
+                {post.date}
+            </p>
+        </div>
+        <h2 class="headline">
+            <a href={post.href} rel="bookmark">{post.title}</a>
+        </h2>
+        <div class="post-author">
+            <p>
+                by <a href={post.authorHref}>{post.author}</a>
+            </p>
+        </div>
+        <span class="divider-small"></span>
+        {
+            post.content.map((block) =>
+                block.type === "quote" ? (
+                    <blockquote>
+                        <p>{block.text}</p>
+                    </blockquote>
+                ) : block.type === "list" ? (
+                    <ul>
+                        {block.items.map((item) => (
+                            <li>{item}</li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>{block.text}</p>
+                ),
+            )
+        }
+        <a href={post.href} class="more-link">Read More</a>
+    </div>
+</div>
+
+<script>
+    import { initBlogPosts } from "./blog-post.js";
+
+    initBlogPosts();
+</script>

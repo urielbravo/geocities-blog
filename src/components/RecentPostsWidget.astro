@@ -1,0 +1,24 @@
+---
+import { archivedPosts, posts } from "../data/posts";
+
+/** Current posts first, then the archived write-ups. */
+const links = [
+    ...posts.map(({ title, href }) => ({ title, href, scroll: true })),
+    ...archivedPosts.map(({ title, href }) => ({ title, href, scroll: false })),
+];
+---
+
+<div class="widget widget_recent_entries">
+    <h6 class="title">Recent Posts</h6>
+    <ul>
+        {
+            links.map(({ title, href, scroll }) => (
+                <li>
+                    <a href={href} class:list={[{ scroll }]}>
+                        {title}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</div>

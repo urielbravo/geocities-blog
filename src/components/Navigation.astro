@@ -1,0 +1,26 @@
+---
+import { mainMenu } from "../data/menu";
+
+import MenuItems from "./MenuItems.astro";
+---
+
+<!-- BEGIN #navigation -->
+<nav id="navigation" class="navigation-main clearfix" role="navigation">
+    <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        &#9776;
+        <span class="menu-toggle-label">MENU</span>
+    </button>
+
+    <div class="menu-main-menu-container">
+        <ul id="menu-main-menu" class="menu">
+            <MenuItems items={mainMenu} />
+        </ul>
+    </div>
+</nav>
+<!-- END #navigation -->
+
+<script>
+    import { initNavigation } from "./navigation.js";
+
+    initNavigation();
+</script>

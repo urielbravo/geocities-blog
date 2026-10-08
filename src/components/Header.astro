@@ -1,0 +1,27 @@
+---
+import { site } from "../data/site";
+
+import Navigation from "./Navigation.astro";
+import Torch from "./Torch.astro";
+---
+
+<!-- BEGIN #header -->
+<div id="header">
+    <div class="row">
+        <Torch side="left" />
+
+        <div id="masthead" class="vertical-center text-center">
+            <h1 class="site-title">
+                <a href="index.html" rel="home">{site.title}</a>
+            </h1>
+            <h2 class="site-description">{site.tagline}</h2>
+        </div>
+
+        <Torch side="right" />
+    </div>
+
+    <div class="row">
+        <Navigation />
+    </div>
+</div>
+<!-- END #header -->

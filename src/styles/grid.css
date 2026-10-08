@@ -1,0 +1,118 @@
+/* 90s Retro — static conversion of the Organic Themes WordPress theme (GPL v2+). */
+
+/* ===== Responsive / grid (from style-mobile.css) ===== */
+/************************************************
+*	Desktop Grid								*
+************************************************/
+
+.row {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+.row .row {
+    min-width: 0;
+}
+.column,
+.columns {
+    float: left;
+    min-height: 1px;
+    position: relative;
+}
+[class*="column"] + [class*="column"]:last-child {
+    float: right;
+}
+
+.half,
+.third,
+.one-third,
+.fourth,
+.one-fourth,
+.two-thirds,
+.three-fourths {
+    float: left;
+}
+.half.last,
+.third.last,
+.one-third.last,
+.fourth.last,
+.one-fourth.last,
+.two-thirds.last,
+.three-fourths.last {
+    float: right;
+}
+
+.full {
+    width: 100%;
+}
+.half {
+    width: 49.9%;
+}
+.third,
+.one-third {
+    width: 33.3%;
+}
+.fourth,
+.one-fourth {
+    width: 25%;
+}
+.two-thirds {
+    width: 66.6%;
+}
+.three-fourths {
+    width: 75%;
+}
+
+.row .one {
+    width: 6.25%;
+}
+.row .two {
+    width: 12.5%;
+}
+.row .three {
+    width: 18.75%;
+}
+.row .four {
+    width: 25%;
+}
+.row .five {
+    width: 31.25%;
+}
+.row .six {
+    width: 37.5%;
+}
+.row .seven {
+    width: 43.75%;
+}
+.row .eight {
+    width: 50%;
+}
+.row .nine {
+    width: 56.25%;
+}
+.row .ten {
+    width: 62.5%;
+}
+.row .eleven {
+    width: 68.75%;
+}
+.row .twelve {
+    width: 75%;
+}
+.row .thirteen {
+    width: 81.25%;
+}
+.row .fourteen {
+    width: 87.5%;
+}
+.row .fifteen {
+    width: 93.75%;
+}
+.row .sixteen {
+    width: 100%;
+}
+
+.row .centered {
+    float: none;
+    margin: 0 auto;
+}
