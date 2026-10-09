@@ -1,0 +1,48 @@
+/* About page. The theme's own `.postarea .article` styles carry the layout —
+   only the images and the video need help here, since the theme has no rules
+   for real photos or embeds inside a post body. */
+
+/* Photos sit centred rather than full-bleed, at a size that keeps a 320px-wide
+   phone from scaling a 480px JPEG down to mush. */
+.about-photo {
+    padding: 18px 0;
+    text-align: center;
+}
+
+.about-photo img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border: 3px solid #33ff00;
+    box-shadow: inset 3px 3px 0px #ffffff;
+}
+
+/* The portrait is round to match the sidebar profile card. `object-position`
+   pulls the crop toward the subject — the frame has a lot of empty wall on the
+   left, so a centred circle would be mostly plaster. */
+.about-portrait {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 62% 30%;
+}
+
+/* Let the video scale down instead of overflowing the post on narrow screens.
+   `initBlogPosts` in blog-post.js also sets this at runtime, but only for
+   iframes inside `.postarea` — this covers first paint and the no-JS case. */
+.about-video {
+    padding: 18px 0;
+    text-align: center;
+}
+
+.about-video iframe {
+    display: block;
+    width: 100%;
+    max-width: 560px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+    border: 3px solid #33ff00;
+}

@@ -1,0 +1,153 @@
+---
+import { Image } from "astro:assets";
+
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import Sidebar from "../components/Sidebar.astro";
+
+import aboutMe from "../assets/images/me_2.jpg";
+import kito1 from "../assets/images/kito_1.jpeg";
+import kito2 from "../assets/images/kito_2.jpeg";
+import kito3 from "../assets/images/kito_3.jpeg";
+---
+
+<BaseLayout
+    title="About"
+    description="About Uriel — webmaster in Mexico, dog person, and fan of the old-school web."
+>
+    <div class="container">
+        <Header />
+
+        <div class="page">
+            <div class="row">
+                <div class="content">
+                    <div class="columns eleven">
+                        <div class="postarea full">
+                            <div class="post page-holder">
+                                <div class="article">
+                                    <h2 class="headline">
+                                        <a href="/about/" rel="bookmark">About Me</a>
+                                    </h2>
+                                    <div class="post-author">
+                                        <p>
+                                            by <a href="/">Webmaster</a>
+                                        </p>
+                                    </div>
+                                    <span class="divider-small"></span>
+
+                                    <p>
+                                        My name is Uriel and I'm a webmaster living
+                                        in Mexico.
+                                    </p>
+                                    <p>
+                                        I like scary stuff and coding, as you can
+                                        see. I'm also a fan of the old school 90s
+                                        web, and this website is an homage to all
+                                        of that.
+                                    </p>
+                                    <p class="about-photo">
+                                        <Image
+                                            class="about-portrait"
+                                            src={aboutMe}
+                                            alt="Me, on a bench, absorbed in my phone"
+                                            width={240}
+                                            height={240}
+                                            loading="lazy"
+                                        />
+                                    </p>
+
+                                    <h3>Kito</h3>
+                                    <p>
+                                        I have a dog, his name is Kito, and he is
+                                        a good friend.
+                                    </p>
+                                    <p class="about-photo">
+                                        <Image
+                                            src={kito1}
+                                            alt="Kito in his Christmas suit"
+                                            width={240}
+                                            height={280}
+                                            loading="lazy"
+                                        />
+                                    </p>
+                                    <p>Sometimes we like to go for a run.</p>
+                                    <p class="about-photo">
+                                        <Image
+                                            src={kito2}
+                                            alt="Kito, tired"
+                                            width={480}
+                                            height={260}
+                                            loading="lazy"
+                                        />
+                                    </p>
+                                    <p>
+                                        But he gets tired very easily, so I let him
+                                        rest once in a while.
+                                    </p>
+                                    <p class="about-photo">
+                                        <Image
+                                            src={kito3}
+                                            alt="Kito, dead inside"
+                                            width={480}
+                                            height={260}
+                                            loading="lazy"
+                                        />
+                                    </p>
+
+                                    <h3>My favorite foods</h3>
+                                    <ul>
+                                        <li>Tacos</li>
+                                        <li>Pizza</li>
+                                        <li>Hamburger</li>
+                                        <li>Burros</li>
+                                        <li>
+                                            I once went to a Chinese restaurant
+                                            because I was feeling a little
+                                            adventurous. I ordered chicken, it was
+                                            raw. Never again.
+                                        </li>
+                                    </ul>
+
+                                    <h3>My YouTube channel</h3>
+                                    <p>
+                                        I have a YouTube channel called
+                                        <strong>Cuentos de la noche</strong> (tales
+                                        of the night). Basically, I tell scary
+                                        stories, but I add effects and sounds to
+                                        make them scarier and more immersive. You
+                                        can check it out, though it's in Spanish.
+                                        Here is one episode:
+                                    </p>
+                                    <p class="about-video">
+                                        <iframe
+                                            width="560"
+                                            height="315"
+                                            src="https://www.youtube.com/embed/fdyfWpSErc8"
+                                            title="Cuentos de la noche — episode"
+                                            frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            referrerpolicy="strict-origin-when-cross-origin"
+                                            loading="lazy"
+                                            allowfullscreen></iframe>
+                                    </p>
+
+                                    <p>
+                                        <a href="/" class="more-link">Back Home</a
+                                        >
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="columns five">
+                        <Sidebar />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <Footer />
+</BaseLayout>

@@ -1,0 +1,74 @@
+/* Resources page. */
+
+/* Full-bleed past the post's text column: the link rows are the content here,
+   so they can use the full width of the `.article` box. */
+.resource-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.resource-item {
+    margin: 0 0 12px;
+    padding: 0;
+}
+
+/* Beats the theme's `.widget li` dotted borders? No — this is inside a post, not
+   a widget, so only the global `ul li` disc style would otherwise apply. Cleared
+   here so each row is its own card. */
+.resource-link {
+    display: block;
+    background: #000000;
+    color: #cccccc;
+    text-decoration: none;
+    padding: 12px 14px;
+    border: 3px solid #666666;
+    box-shadow: inset 3px 3px 0px #cccccc;
+}
+
+.resource-link:hover {
+    background: #33ff00;
+    color: #000000;
+    text-decoration: none;
+    box-shadow: inset 3px 3px 0px #ffffff;
+}
+
+.resource-title {
+    display: block;
+    color: #33ff00;
+    font-family: Courier, serif;
+    font-size: 1.1em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /* Long domains shouldn't wrap mid-word into the shadow. */
+    overflow-wrap: anywhere;
+}
+
+/* A marker so it's obvious these leave the site. */
+.resource-title::after {
+    content: " \2197";
+}
+
+.resource-link:hover .resource-title {
+    color: #000000;
+}
+
+.resource-description {
+    display: block;
+    color: #999999;
+    font-size: 1em;
+    line-height: 1.4;
+    margin-top: 6px;
+}
+
+.resource-link:hover .resource-description {
+    color: #333333;
+}
+
+/* Keyboard focus ring only, not on hover, so it doesn't trail the mouse. */
+.resource-link:focus-visible {
+    outline: 2px solid #ffff00;
+    outline-offset: 2px;
+}

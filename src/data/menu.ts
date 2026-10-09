@@ -10,7 +10,9 @@ export interface MenuItem {
 }
 
 export const mainMenu: MenuItem[] = [
-    { label: "Home", href: "index.html", current: true },
-    { label: "About", href: "#about", scroll: true },
-    { label: "Links", href: "#links", scroll: true },
+    { label: "Home", href: "/", current: true },
+    { label: "About", href: "/about/" },
+    { label: "Resources", href: "/resources/" },
 ];
+
+

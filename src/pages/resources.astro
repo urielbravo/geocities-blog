@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import ResourceList from "../components/ResourceList.astro";
+import Sidebar from "../components/Sidebar.astro";
+---
+
+<BaseLayout
+    title="Resources"
+    description="Links and tools for building a website of your own."
+>
+    <div class="container">
+        <Header />
+
+        <div class="page">
+            <div class="row">
+                <div class="content">
+                    <div class="columns eleven">
+                        <div class="postarea full">
+                            <div class="post page-holder">
+                                <div class="article">
+                                    <h2 class="headline">
+                                        <a href="/resources/" rel="bookmark">Resources</a>
+                                    </h2>
+                                    <div class="post-author">
+                                        <p>
+                                            by <a href="/">Webmaster</a>
+                                        </p>
+                                    </div>
+                                    <span class="divider-small"></span>
+
+                                    <p>
+                                        Here are some links that I've found useful or
+                                        amusing.
+                                    </p>
+
+                                    <h3>
+                                        Resources so you can also create your own
+                                        website
+                                    </h3>
+
+                                    <ResourceList />
+
+                                    <p>
+                                        <a href="/" class="more-link">Back Home</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="columns five">
+                        <Sidebar />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <Footer />
+</BaseLayout>
