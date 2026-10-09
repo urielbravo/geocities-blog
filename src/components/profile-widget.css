@@ -4,6 +4,13 @@
     text-align: center;
 }
 
+/* Centred so the title lines up with the photo and bio below it. This is a
+   deliberate break from the other sidebar titles, which stay left-aligned to
+   match the theme. */
+.widget_profile .title {
+    text-align: center;
+}
+
 /* Oval avatar: a soft curve on a theme otherwise made of hard 90s bevels, so it
    reads as a photo rather than another GIF placeholder. `aspect-ratio` with
    `object-fit` pins it to a circle without depending on the source dimensions —
