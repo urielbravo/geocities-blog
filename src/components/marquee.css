@@ -4,11 +4,21 @@
    The bar stays put and only the track moves. Animating the bar itself is what
    used to slide the whole element outside the retro wrapper, which `overflow`
    can't clip. */
+/* Full-bleed inside the sidebar: the widget has no horizontal padding of its
+   own, and `.sidebar` has none either, so the strip can run edge to edge. The
+   rules stop short of the widget's sides to avoid the borders clipping into
+   the dotted list borders of neighbouring widgets. */
 .marquee {
     overflow: hidden;
     padding: 6px 0;
     border-top: 2px dashed #333333;
     border-bottom: 2px dashed #333333;
+}
+
+/* In the narrow sidebar the buttons need to run at their native 88px to stay
+   legible; the track simply scrolls faster to compensate for the smaller bar. */
+.widget_marquee .title {
+    margin-bottom: 10px;
 }
 
 .marquee-track {
