@@ -18,16 +18,6 @@ const { post } = Astro.props;
     </a>
     <div class="article">
         <div class="post-date">
-            {
-                post.comments && (
-                    <p>
-                        <span class="icon" aria-hidden="true">
-                            &#9993;
-                        </span>{" "}
-                        <a href={post.href}>{post.comments}</a>
-                    </p>
-                )
-            }
             <p>
                 <span class="icon" aria-hidden="true">&#9719;</span> Posted on{" "}
                 {post.date}
@@ -36,11 +26,6 @@ const { post } = Astro.props;
         <h2 class="headline">
             <a href={post.href} rel="bookmark">{post.title}</a>
         </h2>
-        <div class="post-author">
-            <p>
-                by <a href={post.authorHref}>{post.author}</a>
-            </p>
-        </div>
         <span class="divider-small"></span>
         {
             post.content.map((block) =>

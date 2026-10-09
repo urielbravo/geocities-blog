@@ -11,11 +11,7 @@ export interface Post {
     href: string;
     /** Alt-style label rendered inside the image placeholder. */
     imageLabel: string;
-    /** Comment link text; `null` renders no comment link. */
-    comments: string | null;
     date: string;
-    author: string;
-    authorHref: string;
     content: PostBlock[];
 }
 
@@ -25,10 +21,7 @@ export const posts: Post[] = [
         title: "A Theme From The Past",
         href: "#post-1",
         imageLabel: "A beige computer showing a DOS prompt",
-        comments: "3 Comments",
         date: "August 24, 1997",
-        author: "Webmaster",
-        authorHref: "#about",
         content: [
             {
                 type: "paragraph",
@@ -45,10 +38,7 @@ export const posts: Post[] = [
         title: "The Best Games You Never Played",
         href: "#post-2",
         imageLabel: "A neon sunset over a green wireframe grid",
-        comments: "1 Comment",
         date: "June 2, 1996",
-        author: "Webmaster",
-        authorHref: "#about",
         content: [
             {
                 type: "paragraph",
@@ -65,10 +55,7 @@ export const posts: Post[] = [
         title: "Scientific Calculator Games!",
         href: "#post-3",
         imageLabel: "A blue floppy disk",
-        comments: "Leave a Comment",
         date: "December 15, 1995",
-        author: "Webmaster",
-        authorHref: "#about",
         content: [
             {
                 type: "paragraph",
