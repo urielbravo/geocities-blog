@@ -351,11 +351,14 @@
 
 @media (prefers-reduced-motion: reduce) {
     .blink,
-    .marquee span,
-    .torch .flame {
+    .marquee span {
         animation: none;
     }
     .marquee span {
         padding-left: 0;
     }
+    /* Known gap: the torch is an animated GIF, and CSS cannot pause a GIF. The
+       `.torch .flame` override the CSS-drawn torch needed is gone with it. To
+       honour this setting, either swap in a static torch sprite under a
+       `<picture>`/media query, or drop the GIF. */
 }

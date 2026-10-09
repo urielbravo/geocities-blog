@@ -1,4 +1,9 @@
 ---
+// `?url` hands back the raw asset path instead of an ImageMetadata object.
+// Plain `astro:assets` optimisation would rewrite this GIF to a still WebP and
+// throw away every frame but the first, which defeats the point of it.
+import torchGif from "../assets/images/torch.gif?url";
+
 interface Props {
     side: "left" | "right";
 }
@@ -7,9 +12,12 @@ const { side } = Astro.props;
 ---
 
 <div class={`torch-${side}`}>
-    <div class="torch" aria-hidden="true">
-        <span class="flame"></span>
-        <span class="bowl"></span>
-        <span class="handle"></span>
-    </div>
+    <img
+        class="torch"
+        src={torchGif}
+        alt=""
+        width="380"
+        height="600"
+        loading="eager"
+    />
 </div>
