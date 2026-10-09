@@ -350,12 +350,14 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .blink,
-    .marquee span {
+    /* No auto-moving content for anyone who asked for less of it. With the
+       animation off the track is wider than the bar, so let it be scrolled
+       instead of clipped out of reach. */
+    .marquee-track {
         animation: none;
     }
-    .marquee span {
-        padding-left: 0;
+    .marquee {
+        overflow-x: auto;
     }
     /* Known gap: the torch is an animated GIF, and CSS cannot pause a GIF. The
        `.torch .flame` override the CSS-drawn torch needed is gone with it. To

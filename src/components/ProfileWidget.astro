@@ -5,9 +5,19 @@ import profilePicture from "../assets/images/profile_picture.jpg";
 import { profile } from "../data/profile.ts";
 
 import ProfileLinks from "./ProfileLinks.astro";
+
+// ProfileLinks carries id="links", the scroll target for the "Links" nav item.
+// Kept as a source comment so it doesn't ship to the browser.
+
+// This widget owns `id="about"`, the scroll target for the "About" nav item and
+// the post author links. The id used to live on an "About This Site" widget
+// that has since been removed; the profile card is the closest thing left to
+// point at. Kept here as a source comment so it doesn't ship to the browser as
+// an empty HTML comment.
+
 ---
 
-<div class="widget widget_profile">
+<div class="widget widget_profile" id="about">
     <h6 class="title">About Me</h6>
     <div class="profile-card">
         <Image

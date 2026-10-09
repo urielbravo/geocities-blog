@@ -4,7 +4,7 @@ import { profileLinks } from "../data/profile.ts";
 import ProfileLinkIcon from "./ProfileLinkIcon.astro";
 ---
 
-<nav class="profile-links" aria-label="Elsewhere on the web">
+<nav class="profile-links" id="links" aria-label="Elsewhere on the web">
     {
         profileLinks.map((link) => (
             <a

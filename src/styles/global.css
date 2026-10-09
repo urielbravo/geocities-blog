@@ -34,9 +34,7 @@
 @import "../components/menu-toggle.css";
 @import "../components/img-placeholder.css";
 @import "../components/blog-post.css";
-@import "../components/blink.css";
 @import "../components/marquee.css";
-@import "../components/visitor-counter.css";
 
 /* Media queries — must stay last */
 @import "./responsive.css";

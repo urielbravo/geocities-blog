@@ -1,19 +1,52 @@
 /* 90s Retro — static conversion of the Organic Themes WordPress theme (GPL v2+). */
 
+/* Button carousel.
+   The bar stays put and only the track moves. Animating the bar itself is what
+   used to slide the whole element outside the retro wrapper, which `overflow`
+   can't clip. */
 .marquee {
     overflow: hidden;
-    white-space: nowrap;
-    color: #ffff00;
-    font-family: Courier, serif;
     padding: 6px 0;
+    border-top: 2px dashed #333333;
+    border-bottom: 2px dashed #333333;
 }
-.marquee span {
-    display: inline-block;
-    padding-left: 100%;
-    animation: retro-marquee 18s linear infinite;
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+    animation: retro-marquee 22s linear infinite;
 }
+
+.marquee-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* The trailing pad keeps spacing even across the seam between groups. */
+    padding-right: 10px;
+}
+
+.marquee-button {
+    display: block;
+    flex: 0 0 auto;
+    line-height: 0;
+}
+
+.marquee-button img {
+    display: block;
+    max-width: 100%;
+    /* The sprites are already pixel art; keep the hard edges when scaled. */
+    image-rendering: pixelated;
+}
+
+/* The track holds two identical groups, so -50% is exactly one group's width and
+   copy #2 lands precisely where copy #1 started. No visible seam. */
 @keyframes retro-marquee {
     to {
-        transform: translateX(-100%);
+        transform: translateX(-50%);
     }
+}
+
+/* Hold still on hover so a button can actually be caught and clicked. */
+.marquee:hover .marquee-track {
+    animation-play-state: paused;
 }

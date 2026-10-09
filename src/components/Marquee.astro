@@ -1,6 +1,68 @@
-<div class="marquee" aria-hidden="true">
-    <span>
-        *** WELCOME TO MY HOMEPAGE!!! *** Best viewed in Netscape Navigator at
-        800x600 *** Sign my guestbook! *** Under construction ***
-    </span>
+---
+import dontClickHere from "../assets/buttons/dontclickhere.gif?url";
+import eyes from "../assets/buttons/eyes.gif?url";
+import geocities from "../assets/buttons/geocities.gif?url";
+import gimp from "../assets/buttons/gimp.gif?url";
+import hiColors from "../assets/buttons/hicolors.gif?url";
+import horrorLover from "../assets/buttons/horrorlover.gif?url";
+import internetArchive from "../assets/buttons/internetarchive.gif?url";
+import internetArchiveAlt from "../assets/buttons/internetarchive2.jpg?url";
+import linuxNow from "../assets/buttons/linuxnow.jpg?url";
+import monitor from "../assets/buttons/monitor.gif?url";
+import pirateNow from "../assets/buttons/piratenow.gif?url";
+import rats from "../assets/buttons/rats.gif?url";
+import winamp from "../assets/buttons/winamp.gif?url";
+import winampAlt from "../assets/buttons/winamp2.gif?url";
+
+/**
+ * Buttons are placeholders for now — add href values as the destinations are
+ * decided, e.g. <a class="marquee-button" href="https://example.com">
+ *
+ * Plain <img> tags, not <Image>, because sharp re-encodes animated GIFs into a
+ * single frame and most of these are animated. The `?url` suffix forces a URL
+ * string instead of Astro's {src, width, height} object.
+ */
+const buttons = [
+    { src: pirateNow, label: "Pirate Now!" },
+    { src: horrorLover, label: "I love Horror" },
+    { src: dontClickHere, label: "Don't Click Here!" },
+    { src: eyes, label: "Best viewed with eyes" },
+    { src: geocities, label: "Geocities" },
+    { src: gimp, label: "GIMP Graphics" },
+    { src: hiColors, label: "800 x 600 Hi-Colors" },
+    { src: internetArchive, label: "Internet Archive" },
+    { src: internetArchiveAlt, label: "Internet Archive" },
+    { src: linuxNow, label: "Linux Now!" },
+    { src: monitor, label: "A computer and a monitor" },
+    { src: rats, label: "Rats" },
+    { src: winamp, label: "Winamp media player" },
+    { src: winampAlt, label: "Built listening to Winamp" },
+];
+---
+
+<div class="marquee">
+    <div class="marquee-track">
+        {
+            // Two identical copies, so shifting by exactly half the track (one
+            // full group) loops seamlessly. The second is hidden from assistive
+            // tech so the buttons aren't announced twice.
+            [0, 1].map((copy) => (
+                <div
+                    class="marquee-group"
+                    aria-hidden={copy === 1 ? "true" : undefined}
+                >
+                    {buttons.map((button) => (
+                        <a class="marquee-button">
+                            <img
+                                src={button.src}
+                                alt={button.label}
+                                width="88"
+                                height="31"
+                            />
+                        </a>
+                    ))}
+                </div>
+            ))
+        }
+    </div>
 </div>
