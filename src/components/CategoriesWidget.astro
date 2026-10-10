@@ -1,14 +1,18 @@
 ---
-import { categories } from "../data/sidebar";
+import { categoryHref, getCategories } from "../utils/blog.ts";
+
+const groups = getCategories();
 ---
 
 <div class="widget widget_categories">
     <h6 class="title">Categories</h6>
     <ul>
         {
-            categories.map(({ name, href }) => (
+            groups.map((category) => (
                 <li>
-                    <a href={href}>{name}</a>
+                    <a href={categoryHref(category.slug)}>
+                        {category.name} ({category.posts.length})
+                    </a>
                 </li>
             ))
         }

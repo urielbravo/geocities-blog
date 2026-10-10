@@ -7,7 +7,11 @@ import Header from "../components/Header.astro";
 import Pagination from "../components/Pagination.astro";
 import Sidebar from "../components/Sidebar.astro";
 
-import { posts } from "../data/posts";
+import { POSTS_PER_PAGE } from "../data/posts";
+import { paginate, sortedPosts } from "../utils/blog.ts";
+
+// The home page is page 1 of the blog. Later pages live at /blog/page/n/.
+const page = paginate(sortedPosts(), 1, POSTS_PER_PAGE);
 ---
 
 <BaseLayout>
@@ -24,8 +28,13 @@ import { posts } from "../data/posts";
                     <div class="columns eleven">
                         <!-- BEGIN .postarea -->
                         <div class="postarea">
-                            {posts.map((post) => <BlogPost post={post} />)}
-                            <Pagination />
+                            {page.items.map((post) => <BlogPost post={post} />)}
+                            <Pagination
+                                currentPage={page.currentPage}
+                                totalPages={page.totalPages}
+                                basePath="/blog"
+                                firstHref="/"
+                            />
                         </div>
                         <!-- END .postarea -->
                     </div>

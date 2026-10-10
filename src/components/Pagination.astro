@@ -1,17 +1,84 @@
 ---
-import { pagination } from "../data/posts";
+import { pageHref } from "../utils/blog.ts";
+
+interface Props {
+    currentPage: number;
+    totalPages: number;
+    /** Path the pagination lives under, e.g. "/blog" or "/category/games/". */
+    basePath: string;
+    /** Overrides where page 1 points, for listings that aren't at basePath. */
+    firstHref?: string;
+}
+
+const { currentPage, totalPages, basePath, firstHref } = Astro.props;
+
+// Nothing to page through — don't render an empty nav.
+const visible = totalPages > 1;
+const hrefFor = (page: number) =>
+    page === 1 && firstHref ? firstHref : pageHref(basePath, page);
+
+/** 1 … 4 5 [6] 7 … 12, always keeping the current page near the middle. */
+function pageList(current: number, total: number): (number | "gap")[] {
+    const pages = new Set<number>([1, total, current, current - 1, current + 1]);
+    const sorted = [...pages]
+        .filter((p) => p >= 1 && p <= total)
+        .sort((a, b) => a - b);
+
+    const out: (number | "gap")[] = [];
+    let previous = 0;
+    for (const page of sorted) {
+        if (previous && page - previous > 1) out.push("gap");
+        out.push(page);
+        previous = page;
+    }
+    return out;
+}
 ---
 
-<nav class="navigation pagination" role="navigation" aria-label="Posts">
-    <div class="nav-links">
-        <span class="page-numbers current">{pagination.current}</span>
-        {
-            pagination.pages.map((page) => (
-                <a class="page-numbers" href="#">
-                    {page}
-                </a>
-            ))
-        }
-        <a class="next page-numbers" href="#">&raquo;</a>
-    </div>
-</nav>
+{
+    visible && (
+        <nav
+            class="navigation pagination"
+            role="navigation"
+            aria-label="Posts"
+        >
+            <div class="nav-links">
+                {currentPage > 1 && (
+                    <a
+                        class="prev page-numbers"
+                        href={hrefFor(currentPage - 1)}
+                        rel="prev"
+                    >
+                        &laquo;
+                    </a>
+                )}
+
+                {pageList(currentPage, totalPages).map((page) =>
+                    page === "gap" ? (
+                        <span class="page-numbers gap" aria-hidden="true">
+                            &hellip;
+                        </span>
+                    ) : page === currentPage ? (
+                        <span class="page-numbers current" aria-current="page">
+                            {page}
+                        </span>
+                    ) : (
+                        <a class="page-numbers" href={hrefFor(page)}>
+                            {page}
+                        </a>
+                    ),
+                )}
+
+                {currentPage < totalPages && (
+                    <a
+                        class="next page-numbers"
+                        href={hrefFor(currentPage + 1)}
+                        rel="next"
+                    >
+                        &raquo;
+                    </a>
+                )}
+            </div>
+        </nav>
+    )
+}

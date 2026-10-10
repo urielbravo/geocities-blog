@@ -1,22 +1,16 @@
 ---
-import { archivedPosts, posts } from "../data/posts";
+import { getRecentPosts, postHref } from "../utils/blog.ts";
 
-/** Current posts first, then the archived write-ups. */
-const links = [
-    ...posts.map(({ title, href }) => ({ title, href, scroll: true })),
-    ...archivedPosts.map(({ title, href }) => ({ title, href, scroll: false })),
-];
+const links = getRecentPosts(5);
 ---
 
 <div class="widget widget_recent_entries">
     <h6 class="title">Recent Posts</h6>
     <ul>
         {
-            links.map(({ title, href, scroll }) => (
+            links.map((post) => (
                 <li>
-                    <a href={href} class:list={[{ scroll }]}>
-                        {title}
-                    </a>
+                    <a href={postHref(post.slug)}>{post.title}</a>
                 </li>
             ))
         }
