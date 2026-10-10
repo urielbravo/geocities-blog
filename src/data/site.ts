@@ -1,16 +1,12 @@
 /** Site-wide text shared by the layout, header and footer. */
 export const site = {
-    title: "Retro Theme Demo",
-    tagline: "An Organic Themes Demo Site",
+    title: "Uriel's Blog",
+    tagline: "A blog inspired by old GeoCities",
     metaDescription:
-        "A 90s-style website with pixel fonts, neon colors and animated GIFs.",
+        "A blog inspired by old GeoCities — pixel fonts, neon colours and animated GIFs.",
     bodyClasses: "home blog",
     attribution: {
         label: "Organic Themes",
         href: "https://organicthemes.com",
-    },
-    theme: {
-        label: "Download Theme",
-        href: "https://organicthemes.com/retro-theme/",
     },
 };

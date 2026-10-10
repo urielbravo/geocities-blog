@@ -1,0 +1,33 @@
+/* Mock ad slots holding real sprites from src/assets/ads. Nothing is clickable
+   and no request leaves the page. */
+
+.ad-slots {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.ad-slot {
+    width: 100%;
+}
+
+/* Each creative keeps its own intrinsic width (120 and 150) — never stretched
+   to fill the sidebar, which would distort both. `max-width` only guards the
+   narrow case where the sidebar itself gets tighter than the sprite. */
+.ad-slot img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    border: 1px solid #333333;
+}
+
+/* Hidden on phones: the theme stacks the sidebar full-bleed below the posts at
+   this width, where two tall ads are just a column of noise. */
+@media (max-width: 767px) {
+    .widget_ad {
+        display: none;
+    }
+}

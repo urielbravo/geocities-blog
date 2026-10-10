@@ -1,0 +1,50 @@
+---
+// `?url` passes each file through untouched. Astro's optimiser re-encoded these
+// as WebP and the output came out *larger* than the sources — the dithered,
+// high-contrast artwork is exactly what lossy WebP handles worst.
+//
+// Filename `vartical_ad2.gif` is misspelled in src/assets/ads/. Left as-is so
+// the import matches the file on disk; worth renaming.
+import skyscraperAd from "../assets/ads/vartical_ad2.gif?url";
+import verticalAd from "../assets/ads/vertical_ad1.gif?url";
+
+/**
+ * Mock ad slots — nothing is clickable and no request leaves the page. Each
+ * carries its own intrinsic size because the creatives are different shapes;
+ * the CSS centres them and never scales them up.
+ */
+const ads = [
+    {
+        src: skyscraperAd,
+        width: 120,
+        height: 600,
+        label: "Advertisement: casino bonus offer",
+    },
+    {
+        src: verticalAd,
+        width: 150,
+        height: 250,
+        label: "Advertisement: your ad here, for less than you think",
+    },
+];
+---
+
+<div class="widget widget_ad">
+    <h6 class="title">Advertisement</h6>
+    <div class="ad-slots">
+        {
+            ads.map((ad) => (
+                <div class="ad-slot">
+                    <img
+                        src={ad.src}
+                        alt={ad.label}
+                        width={ad.width}
+                        height={ad.height}
+                        loading="lazy"
+                        decoding="async"
+                    />
+                </div>
+            ))
+        }
+    </div>
+</div>

@@ -29,6 +29,7 @@
 
 /* Component styles */
 @import "../components/about-page.css";
+@import "../components/ad-widget.css";
 @import "../components/resource-list.css";
 @import "../components/profile-widget.css";
 @import "../components/social-icons.css";
