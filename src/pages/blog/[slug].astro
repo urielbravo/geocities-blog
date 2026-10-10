@@ -7,24 +7,24 @@ import Sidebar from "../../components/Sidebar.astro";
 
 import { postHref, sortedPosts } from "../../utils/blog.ts";
 
-// One static route per post. `props` is the whole post so the page needs no
-// second lookup at build time.
-export function getStaticPaths() {
-    return sortedPosts().map((post) => ({
-        params: { slug: post.slug },
+// One static route per markdown file in src/content/blog/.
+export async function getStaticPaths() {
+    const posts = await sortedPosts();
+    return posts.map((post) => ({
+        params: { slug: post.id },
         props: { post },
     }));
 }
 
 const { post } = Astro.props;
 
-const all = sortedPosts();
-const index = all.findIndex((p) => p.slug === post.slug);
+const all = await sortedPosts();
+const index = all.findIndex((p) => p.id === post.id);
 const newer = index > 0 ? all[index - 1] : null;
 const older = index < all.length - 1 ? all[index + 1] : null;
 ---
 
-<BaseLayout title={post.title} description={post.excerpt}>
+<BaseLayout title={post.data.title} description={post.data.excerpt}>
     <div class="container">
         <Header />
 
@@ -40,10 +40,10 @@ const older = index < all.length - 1 ? all[index + 1] : null;
                                     older && (
                                         <a
                                             class="previous-post"
-                                            href={postHref(older.slug)}
+                                            href={postHref(older.id)}
                                             rel="prev"
                                         >
-                                            &laquo; {older.title}
+                                            &laquo; {older.data.title}
                                         </a>
                                     )
                                 }
@@ -51,10 +51,10 @@ const older = index < all.length - 1 ? all[index + 1] : null;
                                     newer && (
                                         <a
                                             class="next-post"
-                                            href={postHref(newer.slug)}
+                                            href={postHref(newer.id)}
                                             rel="next"
                                         >
-                                            {newer.title} &raquo;
+                                            {newer.data.title} &raquo;
                                         </a>
                                     )
                                 }

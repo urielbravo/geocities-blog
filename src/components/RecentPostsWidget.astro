@@ -1,7 +1,7 @@
 ---
 import { getRecentPosts, postHref } from "../utils/blog.ts";
 
-const links = getRecentPosts(5);
+const links = await getRecentPosts(5);
 ---
 
 <div class="widget widget_recent_entries">
@@ -10,7 +10,7 @@ const links = getRecentPosts(5);
         {
             links.map((post) => (
                 <li>
-                    <a href={postHref(post.slug)}>{post.title}</a>
+                    <a href={postHref(post.id)}>{post.data.title}</a>
                 </li>
             ))
         }

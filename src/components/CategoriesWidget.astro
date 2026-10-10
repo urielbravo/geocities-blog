@@ -1,7 +1,7 @@
 ---
 import { categoryHref, getCategories } from "../utils/blog.ts";
 
-const groups = getCategories();
+const groups = await getCategories();
 ---
 
 <div class="widget widget_categories">

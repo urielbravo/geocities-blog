@@ -1,27 +1,37 @@
 ---
-import type { Post } from "../data/posts";
+import { render } from "astro:content";
+
+import type { BlogPost } from "../utils/blog.ts";
 
 import { formatDate, getCategoryName, postHref } from "../utils/blog.ts";
 
 import { initBlogPosts } from "./blog-post.js";
 
 interface Props {
-    post: Post;
-    /** Renders the whole body and no "Read More" link — used on the post page. */
+    post: BlogPost;
+    /** Renders the whole body — used on the post page. Listings show the excerpt. */
     full?: boolean;
 }
 
 const { post, full = false } = Astro.props;
-const href = postHref(post.slug);
+const { data } = post;
+const href = postHref(post.id);
+
+// Only render the markdown when the body is actually needed. Listings take the
+// excerpt instead, so there is no point compiling the body there.
+let Content;
+if (full) {
+    ({ Content } = await render(post));
+}
 ---
 
-<div class="post blog-holder" id={post.slug}>
+<div class="post blog-holder" id={post.id}>
     {
         full ? (
             <div
                 class="feature-img img-placeholder"
                 role="img"
-                aria-label={post.imageLabel}
+                aria-label={data.imageLabel}
             >
                 [ Image 900&times;500 ]
             </div>
@@ -29,7 +39,7 @@ const href = postHref(post.slug);
             <a
                 class="feature-img img-placeholder"
                 href={href}
-                aria-label={post.imageLabel}
+                aria-label={data.imageLabel}
             >
                 [ Image 900&times;500 ]
             </a>
@@ -39,38 +49,22 @@ const href = postHref(post.slug);
         <div class="post-date">
             <p>
                 <span class="icon" aria-hidden="true">&#9719;</span> Posted on{" "}
-                {formatDate(post.date)} in{" "}
-                <a href={`/category/${post.category}/`}>
-                    {getCategoryName(post.category)}
+                {formatDate(data.date)} in{" "}
+                <a href={`/category/${data.category}/`}>
+                    {getCategoryName(data.category)}
                 </a>
             </p>
         </div>
         <h2 class="headline">
-            <a href={href} rel="bookmark">{post.title}</a>
+            <a href={href} rel="bookmark">{data.title}</a>
         </h2>
         <span class="divider-small"></span>
         {
             full ? (
-                <>
-                    {post.content.map((block) =>
-                        block.type === "quote" ? (
-                            <blockquote>
-                                <p>{block.text}</p>
-                            </blockquote>
-                        ) : block.type === "list" ? (
-                            <ul>
-                                {block.items.map((item) => (
-                                    <li>{item}</li>
-                                ))}
-                            </ul>
-                        ) : (
-                            <p>{block.text}</p>
-                        ),
-                    )}
-                </>
+                <Content />
             ) : (
                 <>
-                    <p>{post.excerpt}</p>
+                    <p>{data.excerpt}</p>
                     <a href={href} class="more-link">
                         Read More
                     </a>

@@ -6,34 +6,41 @@ import Header from "../../../components/Header.astro";
 import Pagination from "../../../components/Pagination.astro";
 import Sidebar from "../../../components/Sidebar.astro";
 
-import { categories, POSTS_PER_PAGE } from "../../../data/posts";
+import { categories, POSTS_PER_PAGE } from "../../../data/blog.ts";
 import {
     getCategoryName,
     getPostsByCategory,
     paginate,
+    sortedPosts,
 } from "../../../utils/blog.ts";
 
 // Catch-all so a category serves both `/category/<slug>/` and, when it has
 // more posts than fit on one page, `/category/<slug>/page/n/`.
-export function getStaticPaths() {
+export async function getStaticPaths() {
+    const all = await sortedPosts();
+
     return categories.flatMap((category) => {
-        const posts = getPostsByCategory(category.slug);
-        const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
+        const inCategory = all.filter(
+            (post) => post.data.category === category.slug,
+        );
+        const totalPages = Math.max(
+            1,
+            Math.ceil(inCategory.length / POSTS_PER_PAGE),
+        );
 
         return Array.from({ length: totalPages }, (_, i) => ({
-            params: { slug: category.slug, page: i === 0 ? undefined : `page/${i + 1}` },
-            props: { category, page: i + 1 },
+            params: {
+                slug: category.slug,
+                page: i === 0 ? undefined : `page/${i + 1}`,
+            },
+            props: { slug: category.slug, page: i + 1 },
         }));
     });
 }
 
-const { category, page: requested } = Astro.props;
-const page = paginate(
-    getPostsByCategory(category.slug),
-    requested,
-    POSTS_PER_PAGE,
-);
-const name = getCategoryName(category.slug);
+const { slug, page: requested } = Astro.props;
+const page = paginate(await getPostsByCategory(slug), requested, POSTS_PER_PAGE);
+const name = getCategoryName(slug);
 ---
 
 <BaseLayout
@@ -64,11 +71,15 @@ const name = getCategoryName(category.slug);
                                 </div>
                             </div>
 
-                            {page.items.map((post) => <BlogPost post={post} />)}
+                            {
+                                page.items.map((post) => (
+                                    <BlogPost post={post} />
+                                ))
+                            }
                             <Pagination
                                 currentPage={page.currentPage}
                                 totalPages={page.totalPages}
-                                basePath={`/category/${category.slug}`}
+                                basePath={`/category/${slug}`}
                             />
                         </div>
                     </div>

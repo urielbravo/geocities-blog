@@ -6,7 +6,7 @@ import Header from "../../../components/Header.astro";
 import Pagination from "../../../components/Pagination.astro";
 import Sidebar from "../../../components/Sidebar.astro";
 
-import { POSTS_PER_PAGE } from "../../../data/posts";
+import { POSTS_PER_PAGE } from "../../../data/blog.ts";
 import {
     paginate,
     sortedPosts,
@@ -15,14 +15,18 @@ import {
 
 // Pages 2..N. Page 1 is the home page, which serves the same listing, so this
 // route deliberately starts at 2 to avoid two URLs for the same content.
-export function getStaticPaths() {
-    const total = totalBlogPages();
+export async function getStaticPaths() {
+    const total = await totalBlogPages();
     return Array.from({ length: Math.max(0, total - 1) }, (_, i) => ({
         params: { page: String(i + 2) },
     }));
 }
 
-const page = paginate(sortedPosts(), Number(Astro.params.page), POSTS_PER_PAGE);
+const page = paginate(
+    await sortedPosts(),
+    Number(Astro.params.page),
+    POSTS_PER_PAGE,
+);
 ---
 
 <BaseLayout
@@ -37,7 +41,11 @@ const page = paginate(sortedPosts(), Number(Astro.params.page), POSTS_PER_PAGE);
                 <div class="content">
                     <div class="columns eleven">
                         <div class="postarea">
-                            {page.items.map((post) => <BlogPost post={post} />)}
+                            {
+                                page.items.map((post) => (
+                                    <BlogPost post={post} />
+                                ))
+                            }
                             <Pagination
                                 currentPage={page.currentPage}
                                 totalPages={page.totalPages}
