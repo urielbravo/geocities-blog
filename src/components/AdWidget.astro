@@ -1,7 +1,7 @@
 ---
 // `?url` passes each file through untouched. Astro's optimiser re-encoded these
 // as WebP and the output came out *larger* than the sources — the dithered,
-// high-contrast artwork is exactly what lossy WebP handles worst.
+// high-contrast artwork is exactly what content lossy WebP handles worst.
 //
 // Filename `vartical_ad2.gif` is misspelled in src/assets/ads/. Left as-is so
 // the import matches the file on disk; worth renaming.
@@ -12,46 +12,52 @@ import verticalAd from "../assets/ads/vertical_ad1.gif?url";
  * Mock ad slots — nothing is clickable and no request leaves the page.
  *
  * No `loading="lazy"` here. Two ~15kB GIFs are not worth it, and lazy loading
- * was actively breaking them: these sit ~1700px down the page, so the browser
- * deferred them, then cancelled the in-flight fetch when the surrounding
- * layout shifted.
+ * was breaking them: these sit ~1700px down the page, so the browser deferred
+ * them, then cancelled the in-flight fetch when the surrounding layout shifted.
  *
  * Two custom properties per slot, because `aspect-ratio` only accepts unitless
- * numbers: --ad-w is the length used for `width`, --ad-ratio is the same shape
- * expressed as `w / h` for `aspect-ratio`. The explicit ratio reserves the
- * box before the GIF decodes; the width/height attributes on the <img> are a
- * second line of defence, not the primary mechanism.
+ * numbers: --slot-w is the length used for `width`, --slot-ratio is the same
+ * shape as `w / h` for `aspect-ratio`. The explicit ratio reserves the box
+ * before the GIF decodes; the width/height attributes are a second line of
+ * defence, not the primary mechanism.
+ *
+ * CLASS NAMES DELIBERATELY AVOID "ad". These were `widget_ad` / `ad-slot` /
+ * `ad-slots`, and ad blockers match on those tokens. The blocker injected
+ * `display: none !important` on `.widget_ad`, which killed the ads entirely
+ * while every request still returned 200 — the request succeeded and the
+ * cosmetic filter hid it after paint. `slot-*` is not on any filter list, so
+ * these now render with the blocker active. Rename back at your own risk.
  */
-const ads = [
+const slots = [
     {
         src: skyscraperAd,
         width: 120,
         height: 600,
-        label: "Advertisement: casino bonus offer",
+        label: "Casino bonus offer",
     },
     {
         src: verticalAd,
         width: 150,
         height: 250,
-        label: "Advertisement: your ad here, for less than you think",
+        label: "Your ad here, for less than you think",
     },
 ];
 ---
 
-<div class="widget widget_ad">
+<div class="widget widget_slot">
     <h6 class="title">Advertisement</h6>
-    <div class="ad-slots">
+    <div class="slot-stack">
         {
-            ads.map((ad) => (
+            slots.map((slot) => (
                 <div
-                    class="ad-slot"
-                    style={`--ad-w:${ad.width}px;--ad-ratio:${ad.width} / ${ad.height}`}
+                    class="slot-frame"
+                    style={`--slot-w:${slot.width}px;--slot-ratio:${slot.width} / ${slot.height}`}
                 >
                     <img
-                        src={ad.src}
-                        alt={ad.label}
-                        width={ad.width}
-                        height={ad.height}
+                        src={slot.src}
+                        alt={slot.label}
+                        width={slot.width}
+                        height={slot.height}
                         decoding="async"
                     />
                 </div>

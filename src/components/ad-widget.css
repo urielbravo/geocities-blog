@@ -1,29 +1,32 @@
 /* Mock ad slots holding real sprites from src/assets/ads. Nothing is clickable
-   and no request leaves the page. */
+   and no request leaves the page.
 
-.ad-slots {
+   Class names avoid "ad" on purpose — see the note in AdWidget.astro. Ad
+   blockers were matching `widget_ad` / `ad-slot` and hiding the whole widget
+   with `display: none !important`. */
+
+.slot-stack {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 18px;
 }
 
-/* --ad-w is a length (the sprite's intrinsic width, used for `width`).
-   --ad-ratio is the same shape as a unitless ratio, which is the only form
+/* --slot-w is a length (the sprite's intrinsic width, used for `width`).
+   --slot-ratio is the same shape as a unitless ratio, which is the only form
    `aspect-ratio` accepts — it rejects lengths, so `aspect-ratio: 120px / 600px`
-   is an invalid declaration and gets dropped entirely. Confirmed in the browser:
-   CSS.supports('aspect-ratio', '120px / 600px') === false. */
-.ad-slot {
-    width: var(--ad-w, 100%);
+   is an invalid declaration and gets dropped entirely. */
+.slot-frame {
+    width: var(--slot-w, 100%);
     max-width: 100%;
-    aspect-ratio: var(--ad-ratio, 1);
+    aspect-ratio: var(--slot-ratio, 1);
 }
 
-.ad-slot img {
+.slot-frame img {
     display: block;
     /* `border-box` so the 1px border is counted inside the 100% width/height.
        Under content-box the border added 2px and the image overflowed its
-       slot. */
+       frame. */
     box-sizing: border-box;
     width: 100%;
     height: 100%;
@@ -34,9 +37,9 @@
 }
 
 /* Hidden on phones: the theme stacks the sidebar full-bleed below the posts at
-   this width, where two tall ads are just a column of noise. */
+   this width, where two tall slots are just a column of noise. */
 @media (max-width: 767px) {
-    .widget_ad {
+    .widget_slot {
         display: none;
     }
 }
