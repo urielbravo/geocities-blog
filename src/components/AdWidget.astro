@@ -9,9 +9,16 @@ import skyscraperAd from "../assets/ads/vartical_ad2.gif?url";
 import verticalAd from "../assets/ads/vertical_ad1.gif?url";
 
 /**
- * Mock ad slots — nothing is clickable and no request leaves the page. Each
- * carries its own intrinsic size because the creatives are different shapes;
- * the CSS centres them and never scales them up.
+ * Mock ad slots — nothing is clickable and no request leaves the page.
+ *
+ * No `loading="lazy"` here. Two ~15kB GIFs are not worth it, and lazy loading
+ * was actively breaking them: these sit ~1700px down the page, so the browser
+ * deferred them, then cancelled the in-flight fetch when the surrounding
+ * layout shifted. That is the flash-then-vanish.
+ *
+ * `--ad-w` gives each creative a definite width, so the CSS can derive the
+ * height from the aspect ratio and reserve the space before the GIF arrives.
+ * Without it the box collapses to its 1px border until the image decodes.
  */
 const ads = [
     {
@@ -34,13 +41,15 @@ const ads = [
     <div class="ad-slots">
         {
             ads.map((ad) => (
-                <div class="ad-slot">
+                <div
+                    class="ad-slot"
+                    style={`--ad-w:${ad.width}px;--ad-h:${ad.height}px`}
+                >
                     <img
                         src={ad.src}
                         alt={ad.label}
                         width={ad.width}
                         height={ad.height}
-                        loading="lazy"
                         decoding="async"
                     />
                 </div>

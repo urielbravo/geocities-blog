@@ -8,19 +8,23 @@
     gap: 18px;
 }
 
+/* Width comes from the per-slot --ad-w custom property (the sprite's own
+   intrinsic width). A definite width is what lets `aspect-ratio` reserve the
+   full height before the image decodes — without it the box sits at 2x2 (just
+   the border) and jumps to full size on load. */
 .ad-slot {
-    width: 100%;
+    width: var(--ad-w, 100%);
+    max-width: 100%;
+    aspect-ratio: var(--ad-w, 1) / var(--ad-h, 1);
 }
 
-/* Each creative keeps its own intrinsic width (120 and 150) — never stretched
-   to fill the sidebar, which would distort both. `max-width` only guards the
-   narrow case where the sidebar itself gets tighter than the sprite. */
 .ad-slot img {
     display: block;
-    width: auto;
-    max-width: 100%;
-    height: auto;
-    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    /* `object-fit` matters here: the box is sized from the ratio, so the image
+       fills it exactly at natural proportions. */
+    object-fit: fill;
     border: 1px solid #333333;
 }
 
