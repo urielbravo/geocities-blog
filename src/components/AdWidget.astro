@@ -14,11 +14,13 @@ import verticalAd from "../assets/ads/vertical_ad1.gif?url";
  * No `loading="lazy"` here. Two ~15kB GIFs are not worth it, and lazy loading
  * was actively breaking them: these sit ~1700px down the page, so the browser
  * deferred them, then cancelled the in-flight fetch when the surrounding
- * layout shifted. That is the flash-then-vanish.
+ * layout shifted.
  *
- * `--ad-w` gives each creative a definite width, so the CSS can derive the
- * height from the aspect ratio and reserve the space before the GIF arrives.
- * Without it the box collapses to its 1px border until the image decodes.
+ * Two custom properties per slot, because `aspect-ratio` only accepts unitless
+ * numbers: --ad-w is the length used for `width`, --ad-ratio is the same shape
+ * expressed as `w / h` for `aspect-ratio`. The explicit ratio reserves the
+ * box before the GIF decodes; the width/height attributes on the <img> are a
+ * second line of defence, not the primary mechanism.
  */
 const ads = [
     {
@@ -43,7 +45,7 @@ const ads = [
             ads.map((ad) => (
                 <div
                     class="ad-slot"
-                    style={`--ad-w:${ad.width}px;--ad-h:${ad.height}px`}
+                    style={`--ad-w:${ad.width}px;--ad-ratio:${ad.width} / ${ad.height}`}
                 >
                     <img
                         src={ad.src}
