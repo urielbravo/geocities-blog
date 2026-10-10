@@ -19,7 +19,6 @@
 @import "./gallery.css";
 @import "./sidebar.css";
 @import "./widgets.css";
-@import "./footer.css";
 @import "./comments.css";
 @import "./buttons.css";
 @import "./tables.css";
@@ -30,6 +29,7 @@
 /* Component styles */
 @import "../components/about-page.css";
 @import "../components/ad-widget.css";
+@import "../components/footer.css";
 @import "../components/resource-list.css";
 @import "../components/profile-widget.css";
 @import "../components/social-icons.css";

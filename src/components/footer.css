@@ -1,0 +1,27 @@
+/* Footer */
+
+.footer {
+    background: #000000;
+    margin: 0px auto 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+.footer p {
+    margin: 0px;
+    padding: 0px;
+}
+.footer-information {
+    border-top: 2px dotted #333333;
+    padding-top: 24px;
+    overflow: hidden;
+}
+
+/* The footer is now just the copyright line, centred. It replaces the theme's
+   left-aligned copyright + Organic Themes credit + social icon row, so it no
+   longer needs the `align-left` / `align-right` float split. */
+.footer-copyright {
+    color: #999999;
+    font-size: 0.9em;
+    line-height: 1.8;
+    text-align: center;
+}

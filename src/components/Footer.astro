@@ -1,6 +1,5 @@
 ---
 import { site } from "../data/site";
-import { socialLinks } from "../data/sidebar";
 ---
 
 <!-- BEGIN .footer -->
@@ -8,36 +7,10 @@ import { socialLinks } from "../data/sidebar";
     <div class="row">
         <div class="content">
             <div class="footer-information">
-                <div class="align-left">
-                    <p>
-                        Copyright &copy; <span id="year">1997</span> &middot; All
-                        Rights Reserved &middot; {site.title}
-                    </p>
-                    <p>
-                        90s Retro from{" "}
-                        <a
-                            href={site.attribution.href}
-                            target="_blank"
-                            rel="noopener">{site.attribution.label}</a
-                        >
-                    </p>
-                </div>
-
-                <div class="align-right">
-                    <div class="social-menu">
-                        <ul class="social-icons">
-                            {
-                                socialLinks.map(({ name, href }) => (
-                                    <li>
-                                        <a href={href} target="_blank" rel="noopener">
-                                            <span>{name}</span>
-                                        </a>
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    </div>
-                </div>
+                <p class="footer-copyright">
+                    Copyright &copy; <span id="year">1997</span> &middot; All
+                    Rights Reserved &middot; {site.title}
+                </p>
             </div>
         </div>
     </div>
