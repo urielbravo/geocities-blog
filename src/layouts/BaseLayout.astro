@@ -17,8 +17,8 @@ const {
 } = Astro.props;
 
 // "Post title — Site title" on subpages, just the site title on the home page.
-// The tagline deliberately stays out of it: it already starts with "A blog",
-// which reads badly after another title.
+// The tagline stays out of it: it starts with "A blog", which reads badly
+// after another title.
 const pageTitle = title ? `${title} &mdash; ${site.title}` : site.title;
 ---
 
