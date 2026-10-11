@@ -29,8 +29,11 @@ const pageTitle = title ? `${title} &mdash; ${site.title}` : site.title;
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title set:html={pageTitle} />
         <meta name="description" content={description} />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="alternate icon" href="/favicon.ico" sizes="48x48" />
+        <!-- Favicon is meatball.png. The .ico is the legacy fallback, generated
+             at 16/32/48 with Lanczos; PNG covers every browser since IE11, so
+             it's listed last and preferred. -->
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" href="/favicon.png" type="image/png" />
     </head>
 
     <body class={bodyClass}>
